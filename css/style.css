@@ -1,0 +1,60 @@
+/* Style dasar untuk sidebar (navbar) */
+.sidebar {
+    width: 250px; /* Lebar sidebar */
+    background-color: #207dd4; /* Warna latar belakang sidebar */
+    color: #fff; /* Warna teks pada sidebar */
+    position: fixed; /* Sidebar akan tetap berada di posisinya saat digulir */
+    top: 0; /* Posisi sidebar dari atas */
+    left: -250px; /* Awalnya sembunyikan sidebar di luar layar kiri */
+    height: 100%; /* Tinggi sidebar sesuai dengan tinggi layar */
+    overflow-y: auto; /* Jika konten melebihi tinggi sidebar, tambahkan scrollbar vertikal */
+    transition: left 0.3s; /* Efek animasi saat tampilan sidebar berubah */
+}
+
+/* Style untuk tombol hamburger */
+.navbar-toggler {
+    display: block;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    z-index: 1; /* Letakkan di atas sidebar */
+}
+
+.navbar-toggler span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px 0;
+    transition: transform 0.3s; /* Efek animasi saat tampilan tombol berubah */
+}
+
+/* Style saat tombol hamburger dihover (diarahkan mouse) */
+.navbar-toggler:hover span {
+    background-color: #555;
+}
+
+/* Style saat sidebar ditampilkan */
+.sidebar.show {
+    left: 0;
+}
+
+/* Style untuk konten halaman utama */
+.main-content {
+    margin-left: 0; /* Margin kiri nol saat sidebar ditampilkan */
+    padding: 20px; /* Ruang di sekitar konten */
+}
+
+/* Style untuk tombol hamburger saat sidebar ditampilkan */
+.sidebar.show + .navbar-toggler span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.sidebar.show + .navbar-toggler span:nth-child(2) {
+    opacity: 0;
+}
+
+.sidebar.show + .navbar-toggler span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
